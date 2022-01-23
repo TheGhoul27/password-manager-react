@@ -1,5 +1,5 @@
 from xmlrpc.server import SimpleXMLRPCServer, SimpleXMLRPCRequestHandler
-from pythonScripts.managePassword import *
+from ..pythonScripts.managePassword import *
 from cryptography.fernet import Fernet
 import sqlite3
 

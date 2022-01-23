@@ -1,4 +1,4 @@
-/* export const createUser = async (firstName, lastName, email, password) => {
+export const createUser = async (firstName, lastName, email, password) => {
     password = await bcrypt.hash(password, bcrypt.genSaltSync(10))
     try {
       let newUser = await client.query(
@@ -133,4 +133,3 @@
     password.data.id = password.ref.value.id
   return password.data
   }
-   */
