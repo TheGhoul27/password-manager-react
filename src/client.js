@@ -53,7 +53,7 @@ function quitUser() {
 function addUser(params) {
   /* start();
   sleep(1000); */
-  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/', method: 'no-cors' });
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/'});
   return new Promise(function (resolve, reject) {
     return client.methodCall('addUser', params, function (error, value) {
       if (error === null) {
