@@ -1,13 +1,21 @@
 /* eslint-disable no-undef */
+/* Access-Control-Allow-Origin */
 var xmlrpc = require('xmlrpc');
-// var kill  = require('tree-kill');
+/* var kill = require('tree-kill');
+const { PythonShell } = require('python-shell');
+const path = require('path'); */
 
-function start() {
-  //globalThis.subpy = require('child_process').spawn('python', ['../Password-Manager.py'])
+//var {spawn} = require('child_process')
+
+/* function start() {
+  //globalThis.subpy = spawn('python', ['./Password-Manager.py'])
+  let pyshell = new PythonShell(path.join(__dirname, './Password-Manager.py'), {
+    pythonPath: 'python3',
+});
   //sleep(1000);
   //globalThis.subpy = require('child_process').spawn('./server.exe')
   globalThis.client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
-}
+} */
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -23,7 +31,7 @@ function sleep(milliseconds) {
 // Sends a method call to the XML-RPC server
 
 function quitUser() {
-  start();
+  //start();
   sleep(1000);
   client.methodCall('quitUser', [], function (error, value) {
     // Results of the method response
@@ -43,8 +51,9 @@ function quitUser() {
 }
 
 function addUser(params) {
-  start();
-  sleep(1000);
+  /* start();
+  sleep(1000); */
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/', method: 'no-cors' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('addUser', params, function (error, value) {
       if (error === null) {
@@ -70,8 +79,9 @@ function addUser(params) {
 
 
 function userValidation(params) {
-  start();
-  sleep(1000);
+  /* start();
+  sleep(1000); */
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('userValidation', params, function (error, value) {
       if (error === null) {
@@ -97,8 +107,9 @@ function userValidation(params) {
 }
 
 function addCreate(params) {
-  start();
-  sleep(1000);
+  /* start();
+  sleep(1000); */
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('addCreate', params, function (error, value) {
       if (error === null) {
@@ -124,8 +135,9 @@ function addCreate(params) {
 }
 
 function others(params) {
-  start();
-  sleep(1000);
+  /* start();
+  sleep(1000); */
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('others', params, function (error, value) {
       if (error === null) {
@@ -151,8 +163,9 @@ function others(params) {
 }
 
 function forgotPassword(params) {
-  start();
-  sleep(1000);
+  /* start();
+  sleep(1000); */
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('forgotPassword', params, function (error, value) {
       if (error === null) {
@@ -178,8 +191,9 @@ function forgotPassword(params) {
 }
 
 function get(params) {
-  start();
-  sleep(1000);
+  /* start();
+  sleep(1000); */
+  client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('get', params, function (error, value) {
       if (error === null) {

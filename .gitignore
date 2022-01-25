@@ -25,6 +25,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+password_manager.db
+secret.key
+
 # Local Netlify folder
 .netlify
 

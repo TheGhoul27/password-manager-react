@@ -13,7 +13,7 @@ import { Flash } from '../components/Flash/flash';
 
 const AppDashboard = () => {
   const history = useHistory();
-  if (!localStorage.getItem('userId')) {
+  if (!localStorage.getItem('email')) {
     setTimeout(() => {
       window.flash('You need to be logged in', 'warning');
     }, 100);
@@ -25,7 +25,7 @@ const AppDashboard = () => {
 
   const handleCreate = async password => {
     // save to dB
-    password.userId = localStorage.getItem('userId');
+    password.userId = localStorage.getItem('email');
     const newPassword = await createPassword(
       password.accountName,
       password.accountUrl,

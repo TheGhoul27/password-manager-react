@@ -14,7 +14,7 @@ import { Flash } from '../components/Flash/flash';
 export default function SignIn() {
 
   const history = useHistory()
-    if (localStorage.getItem('userId')) {
+    if (localStorage.getItem('email')) {
       setTimeout(() => {
       window.flash('You are logged in', 'warning')
       }, 100)
@@ -38,8 +38,7 @@ export default function SignIn() {
         if (!user) {
           window.flash('Email has been chosen', 'error')
         } else {
-          localStorage.setItem('userId', user.id)
-          localStorage.setItem('email', user.email)
+          localStorage.setItem('email', body.email)
           history.push('/')
           window.flash('Account created successfully, signed in', 'success')
         }

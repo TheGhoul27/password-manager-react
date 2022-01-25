@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 var client = require('./client.js');
 var kill = require('tree-kill');
@@ -16,29 +17,49 @@ function test(params) {
     }
 }
 
-function start() {
-    globalThis.subpy = require('child_process').spawn('./server.exe')
-}
-
 export const createUser = async (firstName, lastName, email, password) => {
-    try {
-      let newUser = await client.query(
-      q.Create(
-        q.Collection('users'),
-          {
-            data: {
-              firstName, 
-              email, 
-              lastName, 
-              password
-            }
-          }
-        )
-      )
-      if (newUser.name === 'BadRequest') return
-      newUser.data.id = newUser.ref.value.id
-      return newUser.data
+    /* try {
+        userName = firstName.concat(' ', lastName);
+        let newUser = await client.addUser([userName, email, password])
+        if (newUser !== 'User Added!!') return
+        return newUser
     } catch (error) {
-      return
-    }
-  }
+        return
+    } */
+    const userName = firstName.concat(' ', lastName);
+    let newUser = await client.addUser([userName, email, password])
+    if (newUser !== 'User Added!!') return
+    return newUser
+};
+
+export const loginUser = async (email, password) => {
+    let userData = await client.userValidation([email, password])
+    if (userData === "User Not Found!!") return
+    if (userData === "Error while doing the Operation!!") return "Something went wrong"
+    return userData 
+};
+
+export const getUser = async (userId) => {
+    return;
+};
+
+export const createPassword = async (accountName, accountUrl, email, encryptedPassword, userId) => {
+    return;
+};
+
+
+export const getPasswordsByUserID = async id => {
+    return;
+};
+
+export const getPassword = async id => {
+    return;
+};
+
+export const updatePassword = async (payload, id) => {
+    return;
+};
+
+export const deletePassword = async id => {
+    return;
+};

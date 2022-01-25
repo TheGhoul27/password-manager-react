@@ -17,7 +17,7 @@ const Home = () => {
         <img src={hero} alt="" className="shadow-lg" style={{border : "none", borderRadius : "15px", maxWidth : "90%", maxHeight : "75%"}} />
         <img src={hero1} alt="" className="h-25 shadow-lg mx-2" style={{border : "none", borderRadius : "15px"}} />
       </Container>
-      <p className="navbar fixed-bottom d-block w-100 m-0 text-center" style={{backgroundColor : "#d1e1f0e7"}} >Built with <FontAwesomeIcon icon={faHeart} className="text-danger" /> by <Link target="_blank" to={{ pathname: "https://twitter.com/bkoiki950"}}>Babatunde Koiki</Link> and <Link target="_blank" to={{ pathname: "https://twitter.com/AdewolzJ"}}>wolz-CODElife</Link></p>
+      <p className="navbar fixed-bottom d-block w-100 m-0 text-center" style={{backgroundColor : "#d1e1f0e7"}} >Built with <FontAwesomeIcon icon={faHeart} className="text-danger" /> by <Link target="_blank" to={{ pathname: "https://twitter.com/PradhumnaGP"}}>Pradhumna Guruprasad</Link></p>
     </div>
   )
 }

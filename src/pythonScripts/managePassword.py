@@ -4,6 +4,7 @@ from .updatePassword import *
 from .mailPassword import *
 from .getPassword import *
 from .encryptPassword import *
+import json
 
 '''import sqlite3
 
@@ -55,10 +56,10 @@ def forgot(user, key, conn):
 
 
 def createUser(user, mail, password, key, conn):
-    if not checkUser(user, password, key, conn):
-        user = 'P' + str(''.join(hex(ord(x))[2:] for x in user))
+    if not checkUser(mail, password, key, conn):
+        mail = 'P' + str(''.join(hex(ord(x))[2:] for x in mail))
         command = "CREATE TABLE " + \
-            user + " (USER_KEY TEXT, PASS_KEY TEXT)"
+            mail + " (USER_KEY TEXT, PASS_KEY TEXT)"
         conn.execute(command)
         command = "INSERT INTO USERS (USERNAME, MAIL, PASSWORD) VALUES (?, ?, ?)"
         user = encrypt_message(''.join(hex(ord(x))[2:] for x in user), key)
@@ -73,11 +74,11 @@ def createUser(user, mail, password, key, conn):
         return False
 
 
-def checkUser(user, password, key, conn):
+def checkUser(mail, password, key, conn):
     cursor = conn.execute("SELECT * from USERS")
     flag = False
     for row in cursor:
-        if bytes.fromhex(decrypt_message(row[0], key)).decode('utf-8') == user:
+        if bytes.fromhex(decrypt_message(row[1], key)).decode('utf-8') == mail:
             if bytes.fromhex(decrypt_message(row[2], key)).decode('utf-8') == password:
                 flag = True
             break
