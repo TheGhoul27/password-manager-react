@@ -27,6 +27,7 @@ yarn-error.log*
 
 password_manager.db
 secret.key
+app.py
 
 # Local Netlify folder
 .netlify

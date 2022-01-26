@@ -4,7 +4,6 @@ from .updatePassword import *
 from .mailPassword import *
 from .getPassword import *
 from .encryptPassword import *
-import json
 
 '''import sqlite3
 
@@ -74,11 +73,13 @@ def createUser(user, mail, password, key, conn):
         return False
 
 
-def checkUser(mail, password, key, conn):
+def checkUser(user, password, key, conn):
     cursor = conn.execute("SELECT * from USERS")
     flag = False
     for row in cursor:
-        if bytes.fromhex(decrypt_message(row[1], key)).decode('utf-8') == mail:
+        userRetrive = bytes.fromhex(
+            decrypt_message(row[1], key)).decode('utf-8')
+        if bytes.fromhex(userRetrive[1:]).decode("utf-8") == user:
             if bytes.fromhex(decrypt_message(row[2], key)).decode('utf-8') == password:
                 flag = True
             break

@@ -56,8 +56,15 @@ function addUser(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/'});
   return new Promise(function (resolve, reject) {
     return client.methodCall('addUser', params, function (error, value) {
+      var res;
+      for (const key in value) {
+        if (key === 'response') {
+          res = JSON.parse(value[key].toString()).returnvalue;
+        }
+      }
+      console.log(res);
       if (error === null) {
-        if (value === true) {
+        if (res === 'True') {
           console.log('User Added!!');
           // kill(subpy.pid);
           return resolve('User Added!!');
@@ -84,8 +91,14 @@ function userValidation(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('userValidation', params, function (error, value) {
+      var res;
+      for (const key in value) {
+        if (key === 'response') {
+          res = JSON.parse(value[key].toString()).returnvalue;
+        }
+      }
       if (error === null) {
-        if (value === true) {
+        if (res === 'True') {
           console.log('User Found!!');
           // kill(subpy.pid);
           return resolve('User Found!!');
@@ -112,6 +125,7 @@ function addCreate(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('addCreate', params, function (error, value) {
+      console.log(value);
       if (error === null) {
         if (value === true) {
           console.log('Credentails Added!!');
