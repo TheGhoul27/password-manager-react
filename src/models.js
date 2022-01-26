@@ -18,18 +18,14 @@ function test(params) {
 }
 
 export const createUser = async (firstName, lastName, email, password) => {
-    /* try {
-        userName = firstName.concat(' ', lastName);
+    try {
+        const userName = firstName.concat(' ', lastName);
         let newUser = await client.addUser([userName, email, password])
         if (newUser !== 'User Added!!') return
         return newUser
     } catch (error) {
         return
-    } */
-    const userName = firstName.concat(' ', lastName);
-    let newUser = await client.addUser([userName, email, password])
-    if (newUser !== 'User Added!!') return
-    return newUser
+    }
 };
 
 export const loginUser = async (email, password) => {

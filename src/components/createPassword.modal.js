@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CryptoJS from "crypto-js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
@@ -19,12 +18,11 @@ const CreatePasswordModal = props => {
  const [password, setPassword] = useState('') 
 
  const handleCreate = async () => {
-  const encryptedPassword = CryptoJS.AES.encrypt(password, process.env.REACT_APP_SECRET_KEY).toString()
   const payload = {
     accountName, 
     accountUrl,
     email,
-    encryptedPassword
+    password
   }
   props.handleCreate(payload)
   setAccountName('')
