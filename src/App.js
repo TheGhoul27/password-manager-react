@@ -26,7 +26,7 @@ const App = () => {
         <Route exact path="/login" component={Signin} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/logout" component={() => {
-          if (!localStorage.getItem('userId')) {
+          if (!localStorage.getItem('email')) {
             setTimeout(() => {
               window.flash('You were not logged in', 'warning')
             }, 100)

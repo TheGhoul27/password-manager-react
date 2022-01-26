@@ -35,7 +35,7 @@ const NavbarComponent = (props) => {
       <Nav className="ml-auto">
         <Link to="/" className="mt-2" style={{textDecoration : "none"}}>Home</Link>
 
-        {!localStorage.getItem('userId') ? 
+        {!localStorage.getItem('email') ? 
           <>
             <NavDropdown title={<FontAwesomeIcon icon={faUserCircle} size="2x" className="text-primary" />} alignRight id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/login" className="text-primary">Sign in</NavDropdown.Item>
