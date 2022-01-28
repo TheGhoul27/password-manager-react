@@ -39,8 +39,11 @@ export const getUser = async (userId) => {
     return;
 };
 
-export const createPassword = async (accountName, accountUrl, email, encryptedPassword, userId) => {
-    return;
+export const createPassword = async (accountName, accountUrl, email, Password, userId) => {
+    let newPassword = await client.addCreate([accountName, accountUrl, email, Password, userId])
+    if (newPassword === "Credentails Present!!") return 'Credentails Present!!'
+    if (newPassword === "Error while doing the Operation!!") return "Something went wrong"
+    return newPassword
 };
 
 

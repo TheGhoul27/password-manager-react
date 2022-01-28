@@ -126,8 +126,14 @@ function addCreate(params) {
   return new Promise(function (resolve, reject) {
     return client.methodCall('addCreate', params, function (error, value) {
       console.log(value);
+      var res;
+      for (const key in value) {
+        if (key === 'response') {
+          res = JSON.parse(value[key].toString()).returnvalue;
+        }
+      }
       if (error === null) {
-        if (value === true) {
+        if (res === 'False') {
           console.log('Credentails Added!!');
           // kill(subpy.pid);
           return resolve('Credentails Added!!');

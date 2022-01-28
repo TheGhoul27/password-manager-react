@@ -18,12 +18,12 @@ except:
     cursor = conn.execute("SELECT * from USERS")'''
 
 
-def functionCallAdd(function, service, username, password, user, key, conn):
+def functionCallAdd(function, service, url, username, password, user, key, conn):
     user = 'P' + str(''.join(hex(ord(x))[2:] for x in user))
     if function == 'add':
-        flag = add_password(username, service, password, user, conn, key)
+        flag = add_password(username, url, service, password, user, conn, key)
     else:
-        flag = add_password(username, service, 'u', user, conn, key)
+        flag = add_password(username, url, service, 'u', user, conn, key)
 
     return flag
 
@@ -32,15 +32,19 @@ def functionCallOthers(function, service, username, password, user, key, conn):
     user = 'P' + str(''.join(hex(ord(x))[2:] for x in user))
     if function == 'update':
         update_password(service, username, password, user, conn, key)
+        return 'Success'
     elif function == 'delete':
         delete_password(service, username, user, conn, key)
+        return 'Success'
     else:
-        return
+        return 'Error'
 
 
 def getAll(user, key, conn):
     user = 'P' + str(''.join(hex(ord(x))[2:] for x in user))
-    return get_password(user, conn, key)
+    allVals = get_password(user, key, conn)
+    conn.close()
+    return allVals
 
 
 def forgot(user, key, conn):
