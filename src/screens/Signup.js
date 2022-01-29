@@ -13,7 +13,7 @@ import { Flash } from '../components/Flash/flash';
 
 export default function SignIn() {
 
-  const history = useHistory()
+  const history = useHistory();
     if (localStorage.getItem('email')) {
       setTimeout(() => {
       window.flash('You are logged in', 'warning')
@@ -24,43 +24,43 @@ export default function SignIn() {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const body = {
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
       email: e.target.email.value,
       password: e.target.password.value
-    }
+    };
 
     try {
       if (body.firstName && body.lastName && body.password && body.email && body.password === e.target.confirm_password.value) {
-        const user = await createUser(body.firstName, body.lastName, body.email, body.password)
+        const user = await createUser(body.firstName, body.lastName, body.email, body.password);
         if (!user) {
-          window.flash('Email has been chosen', 'error')
+          window.flash('Email has been chosen', 'error');
         } else {
-          localStorage.setItem('email', body.email)
-          history.push('/')
-          window.flash('Account created successfully, signed in', 'success')
+          localStorage.setItem('email', body.email);
+          history.push('/');
+          window.flash('Account created successfully, signed in', 'success');
         }
       } else if (!body.firstName || !body.email || !body.lastName || !e.target.confirm_password.value) {
-        setValidated(true)
+        setValidated(true);
       } else {
-        setValidated(true)
+        setValidated(true);
       }
     } catch (error) {
-      console.log(error)
-      window.flash('Something went wrong', 'error')
+      console.log(error);
+      window.flash('Something went wrong', 'error');
     }
-  } 
+  }; 
 
- return (
+  return (
     <>
-      <NavbarComponent /> 
-      <Flash /> <br/><br/>
-      <Container className='d-flex flex-column align-items-center justify-content-center pt-5' style={{height : '80vh'}}>
+      <NavbarComponent />
+      <Flash /> <br /><br />
+      <Container className='d-flex flex-column align-items-center justify-content-center pt-5' style={{ height: '80vh' }}>
         <p className="h3 display-4 mt-5"><FontAwesomeIcon icon={faUserCircle} size="1x" /></p>
         <p className="h2 display-5">Register</p>
-        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{minWidth : '300px' }}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ minWidth: '300px' }}>
           <Form.Row>
             <Form.Group as={Col} md="6" controlId="validationCustom01">
               <Form.Label>First name</Form.Label>
@@ -100,5 +100,5 @@ export default function SignIn() {
         </Form>
       </Container>
     </>
-  )
-}
+  );
+};

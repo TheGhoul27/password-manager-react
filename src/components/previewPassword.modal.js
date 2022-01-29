@@ -11,13 +11,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink, faEye, faEyeSlash, faCopy, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const PreviewPasswordModal = props => {
-  const [passwordType, setPasswordType] = useState('password')
+  const [passwordType, setPasswordType] = useState('password');
 
   return <Modal
-    {...props} size="xlg"aria-labelledby="contained-modal-title-vcenter" centered>
-    <Modal.Header style={{backgroundColor : "#d1e1f0"}} closeButton>
+    {...props} size="xlg" aria-labelledby="contained-modal-title-vcenter" centered>
+    <Modal.Header style={{ backgroundColor: "#d1e1f0" }} closeButton>
       <Modal.Title id="contained-modal-title-vcenter">
-        <img src={web} alt=""/> {props.accountName}
+        <img src={web} alt="" /> {props.accountName}
       </Modal.Title>
     </Modal.Header>
     <Modal.Body className="show-grid">
@@ -25,30 +25,30 @@ const PreviewPasswordModal = props => {
         <Row>
           <Col>
             <p><FontAwesomeIcon icon={faLink} size="sm" /> <a href={props.accountUrl} rel="noreferrer" target="_blank"><small>{props.accountName}</small></a></p>
-            <div><FormControl type="text" value={props.email} className="my-1" readOnly/></div>
+            <div><FormControl type="text" value={props.email} className="my-1" readOnly /></div>
             <Row className="my-1">
               <Col xs={8} md={9}>
-                <FormControl type={passwordType} value={props.password} readOnly/>
+                <FormControl type={passwordType} value={props.password} readOnly />
               </Col>
               <Col xs={2} md={1} className="text-left">
-                <span style={{cursor : 'pointer'}} onClick={() => {setPasswordType(passwordType === "password"? "text" : "password")}}>
-                  {passwordType === "password"? 
-                    <FontAwesomeIcon icon={faEye} size="1x" className="align-bottom" /> 
-                    : 
-                    <FontAwesomeIcon icon={faEyeSlash} size="1x" className="align-bottom" /> }
+                <span style={{ cursor: 'pointer' }} onClick={() => { setPasswordType(passwordType === "password" ? "text" : "password"); }}>
+                  {passwordType === "password" ?
+                    <FontAwesomeIcon icon={faEye} size="1x" className="align-bottom" />
+                    :
+                    <FontAwesomeIcon icon={faEyeSlash} size="1x" className="align-bottom" />}
                 </span>
               </Col>
               <Col xs={2} md={1} className="text-right">
-                <span style={{cursor : 'pointer'}}
+                <span style={{ cursor: 'pointer' }}
                   onClick={() => {
-                    let passwordText = document.createElement('textarea')
-                    passwordText.innerText = props.password
-                    document.body.appendChild(passwordText)
-                    passwordText.select()
-                    document.execCommand('copy')
-                    passwordText.remove()
+                    let passwordText = document.createElement('textarea');
+                    passwordText.innerText = props.password;
+                    document.body.appendChild(passwordText);
+                    passwordText.select();
+                    document.execCommand('copy');
+                    passwordText.remove();
                   }}>
-                    <FontAwesomeIcon icon={faCopy} size="1x" className="align-bottom" />
+                  <FontAwesomeIcon icon={faCopy} size="1x" className="align-bottom" />
                 </span>
               </Col>
             </Row>
@@ -58,14 +58,14 @@ const PreviewPasswordModal = props => {
     </Modal.Body>
     <Modal.Footer>
       <Button onClick={props.onEdit}>
-        <FontAwesomeIcon icon={faEdit} size="md" className="" /> 
+        <FontAwesomeIcon icon={faEdit} size="md" className="" />
       </Button>
       <Button variant="danger" onClick={props.onDelete}>
-        <FontAwesomeIcon icon={faTrashAlt} size="1x" className="" /> 
+        <FontAwesomeIcon icon={faTrashAlt} size="1x" className="" />
       </Button>
     </Modal.Footer>
     <EditPasswordModal
-      closePreview={() => {props.onHide()}}
+      closePreview={() => { props.onHide(); }}
       id={props.id}
       show={props.edit}
       editPassword={props.editPassword}
@@ -74,10 +74,10 @@ const PreviewPasswordModal = props => {
       accountUrl={props.accountUrl}
       email={props.email}
       password={props.password}
-      title={"Edit Password for "+props.accountName}
+      title={"Edit Password for " + props.accountName}
       onHide={props.onHideEdit}
     />
-    </Modal>
-}
+  </Modal>;
+};
 
-export default PreviewPasswordModal
+export default PreviewPasswordModal;

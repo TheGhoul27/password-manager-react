@@ -13,7 +13,7 @@ import { Flash } from '../components/Flash/flash';
 
 export default function SignIn() {
 
-  const history = useHistory()
+  const history = useHistory();
   if (localStorage.getItem('email')) {
     setTimeout(() => {
       window.flash('You are logged in', 'warning')
@@ -21,39 +21,39 @@ export default function SignIn() {
     history.push('/') 
   }
 
-  const [validated, setValidated] = useState(false)
+  const [validated, setValidated] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const body = {
       email: event.target.email.value,
       password: event.target.password.value
-    }
+    };
 
     // Handle login logic
 
     if (!body.email || !body.password) {
-      setValidated(true)
+      setValidated(true);
     } else {
-      const user = await loginUser(body.email, body.password)
+      const user = await loginUser(body.email, body.password);
       if (user) {
-        localStorage.setItem('email', body.email)
-        history.push('/')
-        window.flash('Logged in successfully!', 'success')
+        localStorage.setItem('email', body.email);
+        history.push('/');
+        window.flash('Logged in successfully!', 'success');
       } else {
-        window.flash('Invalid email or password', 'error')
+        window.flash('Invalid email or password', 'error');
       }
     }
-  }
+  };
 
- return (
+  return (
     <>
       <NavbarComponent />
       <Flash />
-      <Container className='d-flex flex-column align-items-center justify-content-center' style={{height : '80vh'}}>
+      <Container className='d-flex flex-column align-items-center justify-content-center' style={{ height: '80vh' }}>
         <p className="h3 display-4"><FontAwesomeIcon icon={faUserCircle} size="1x" /></p>
         <p className="h2 display-5">Sign in</p>
-        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{minWidth : '300px' }}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ minWidth: '300px' }}>
           <Form.Row>
             <Form.Group as={Col} md="12" controlId="validationCustom01">
               <Form.Label>Email</Form.Label>
@@ -74,6 +74,6 @@ export default function SignIn() {
           <p className="text-center"><Link to="/register">Register</Link> to create account!</p>
         </Form>
       </Container>
-      </>
-    )
-  }
+    </>
+  );
+};

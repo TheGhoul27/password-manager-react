@@ -14,9 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export const event = new EventEmitter()
 
 const App = () => {
-  window.flash = (message, type="success") => event.emit(
-    'flash', 
-    ({message, type})
+  window.flash = (message, type = "success") => event.emit(
+    'flash',
+    ({ message, type })
   );
   return (
     <Router>
@@ -28,19 +28,19 @@ const App = () => {
         <Route exact path="/logout" component={() => {
           if (!localStorage.getItem('email')) {
             setTimeout(() => {
-              window.flash('You were not logged in', 'warning')
-            }, 100)
+              window.flash('You were not logged in', 'warning');
+            }, 100);
           } else {
-            localStorage.clear()
+            localStorage.clear();
             setTimeout(() => {
-              window.flash('Logged out successfully', 'success')
-            }, 100)
+              window.flash('Logged out successfully', 'success');
+            }, 100);
           }
-          return <Redirect to='/' />
+          return <Redirect to='/' />;
         }} />
       </Switch>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
