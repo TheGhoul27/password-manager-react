@@ -33,6 +33,7 @@ const AppDashboard = () => {
       password.encryptedPassword,
       password.userId
     );
+    console.log(newPassword);
     setPasswords([newPassword, ...passwords]);
     window.flash('New contact created successfully', 'success');
   };

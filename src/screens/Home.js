@@ -8,9 +8,12 @@ import hero1 from '../assets/illus8.jpg';
 import hero from '../assets/illus4.png';
 
 const Home = () => {
+  const handleCreate = async (password) => {
+    window.flash("", "success");
+  };
   return (
     <div>
-      <NavbarComponent />
+      <NavbarComponent handleCreate={handleCreate} />
       <Flash />
       <Container style={{ height: "70vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         <img src={hero1} alt="" className="h-25 shadow-lg mx-2" style={{ border: "none", borderRadius: "15px" }} />
