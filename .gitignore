@@ -27,7 +27,6 @@ yarn-error.log*
 
 password_manager.db
 secret.key
-app.py
 app.spec
 build
 dist
