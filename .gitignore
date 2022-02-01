@@ -30,6 +30,7 @@ secret.key
 app.spec
 build
 dist
+venv
 test.txt
 
 # Local Netlify folder
