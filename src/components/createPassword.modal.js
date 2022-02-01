@@ -7,9 +7,9 @@ import Col from "react-bootstrap/Col";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
-//import dotenv from 'dotenv'
+import dotenv from 'dotenv'
 
-//dotenv.config()
+dotenv.config()
 
 const CreatePasswordModal = props => {
   const [accountName, setAccountName] = useState('');
@@ -23,18 +23,18 @@ const CreatePasswordModal = props => {
       accountUrl,
       email,
       password
-    };
-    props.handleCreate(payload);
-    setAccountName('');
-    setAccountUrl('');
-    setEmail('');
-    setPassword('');
-    window.flash('Password created successfully', 'success');
+    }
+    props.handleCreate(payload)
+    setAccountName('')
+    setAccountUrl('')
+    setEmail('')
+    setPassword('')
+    window.flash('Password created successfully', 'success')
   };
 
   const onHide = () => {
-    props.onHide(accountUrl, password, email, accountName);
-  };
+    props.onHide(accountUrl, password, email, accountName)
+  }
 
   return (
     <Modal
@@ -74,6 +74,6 @@ const CreatePasswordModal = props => {
       </Modal.Footer>
     </Modal>
   );
-};
+}
 
-export default CreatePasswordModal;
+export default CreatePasswordModal

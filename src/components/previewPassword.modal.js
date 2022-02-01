@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink, faEye, faEyeSlash, faCopy, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const PreviewPasswordModal = props => {
-  const [passwordType, setPasswordType] = useState('password');
+  const [passwordType, setPasswordType] = useState('password')
 
   return <Modal
     {...props} size="xlg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -77,7 +77,7 @@ const PreviewPasswordModal = props => {
       title={"Edit Password for " + props.accountName}
       onHide={props.onHideEdit}
     />
-  </Modal>;
-};
+  </Modal>
+}
 
-export default PreviewPasswordModal;
+export default PreviewPasswordModal

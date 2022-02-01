@@ -11,15 +11,15 @@ import { faUserCircle, faCog } from '@fortawesome/free-solid-svg-icons'
 const NavbarComponent = (props) => {
   const [createModalShow, setCreateModalShow] = useState(false);
   const handleHide = (url, password, email, name) => {
-    let n = true;
+    let n = true
     if (url || password || email || name) { n = window.confirm("Your changes won't be saved..."); }
-    if (n) setCreateModalShow(false);
-  };
+    if (n) setCreateModalShow(false)
+  }
 
   const handleCreate = payload => {
-    props.handleCreate(payload);
-    setCreateModalShow(false);
-  };
+    props.handleCreate(payload)
+    setCreateModalShow(false)
+  }
 
   return (
     <Navbar expand="lg" className="navbar-fixed-top"
@@ -55,7 +55,7 @@ const NavbarComponent = (props) => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  );
-};
+  )
+}
 
-export default NavbarComponent;
+export default NavbarComponent

@@ -25,10 +25,10 @@ const EditPasswordModal = props => {
       email,
       password,
       id: props.id
-    };
+    }
     props.editPassword(payload);
     props.closePreview();
-  };
+  }
 
   return (
     <Modal {...props} size="xlg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -77,6 +77,6 @@ const EditPasswordModal = props => {
       </Modal.Footer>
     </Modal>
   );
-};
+}
 
-export default EditPasswordModal;
+export default EditPasswordModal

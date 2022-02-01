@@ -10,7 +10,7 @@ import hero from '../assets/illus4.png';
 const Home = () => {
   const handleCreate = async (password) => {
     window.flash("", "success");
-  };
+  }
   return (
     <div>
       <NavbarComponent handleCreate={handleCreate} />
@@ -22,7 +22,7 @@ const Home = () => {
       </Container>
       <p className="navbar fixed-bottom d-block w-100 m-0 text-center" style={{ backgroundColor: "#d1e1f0e7" }} >Built with <FontAwesomeIcon icon={faHeart} className="text-danger" /> by <Link target="_blank" to={{ pathname: "https://twitter.com/PradhumnaGP" }}>Pradhumna Guruprasad</Link></p>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

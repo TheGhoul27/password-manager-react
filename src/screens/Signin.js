@@ -15,7 +15,7 @@ export default function SignIn() {
 
   const handleCreate = async (password) => {
     window.flash("", "success");
-  };
+  }
 
   const history = useHistory();
   if (localStorage.getItem('email')) {
@@ -32,7 +32,7 @@ export default function SignIn() {
     const body = {
       email: event.target.email.value,
       password: event.target.password.value
-    };
+    }
 
     // Handle login logic
 
@@ -48,7 +48,7 @@ export default function SignIn() {
         window.flash('Invalid email or password', 'error');
       }
     }
-  };
+  }
 
   return (
     <>
@@ -79,5 +79,5 @@ export default function SignIn() {
         </Form>
       </Container>
     </>
-  );
-};
+  )
+}

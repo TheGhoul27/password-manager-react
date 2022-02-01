@@ -15,7 +15,7 @@ export default function SignIn() {
 
   const handleCreate = async (password) => {
     window.flash("", "success");
-  };
+  }
 
   const history = useHistory();
     if (localStorage.getItem('email')) {
@@ -34,7 +34,7 @@ export default function SignIn() {
       lastName: e.target.lastName.value,
       email: e.target.email.value,
       password: e.target.password.value
-    };
+    }
 
     try {
       if (body.firstName && body.lastName && body.password && body.email && body.password === e.target.confirm_password.value) {
@@ -55,7 +55,7 @@ export default function SignIn() {
       console.log(error);
       window.flash('Something went wrong', 'error');
     }
-  }; 
+  }
 
   return (
     <>
@@ -104,5 +104,5 @@ export default function SignIn() {
         </Form>
       </Container>
     </>
-  );
-};
+  )
+}

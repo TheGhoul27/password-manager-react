@@ -15,38 +15,39 @@ const AppDashboard = () => {
   const history = useHistory();
   if (!localStorage.getItem('email')) {
     setTimeout(() => {
-      window.flash('You need to be logged in', 'warning');
+      window.flash('You need to be logged in', 'warning')
     }, 100);
     history.push('/login');
   }
 
-  const [passwords, setPasswords] = useState([]);
-  const [isPending, setIsPending] = useState(false);
+  const [passwords, setPasswords] = useState([])
+  const [isPending, setIsPending] = useState(false)
 
   const handleCreate = async password => {
+    console.log("Hi!!!")
     // save to dB
-    password.userId = localStorage.getItem('email');
+    password.userId = localStorage.getItem('email')
     const newPassword = await createPassword(
       password.accountName,
       password.accountUrl,
       password.email,
-      password.encryptedPassword,
+      password.password,
       password.userId
-    );
+    )
     console.log(newPassword);
-    setPasswords([newPassword, ...passwords]);
-    window.flash('New contact created successfully', 'success');
-  };
+    setPasswords([newPassword, ...passwords])
+    window.flash('New contact created successfully', 'success')
+  }
 
   useEffect(() => {
     setIsPending(true);
     const getContacts = async () => {
       let passwordData = await getPasswordsByUserID(localStorage.getItem('email'));
       setPasswords(passwordData);
-    };
+    }
     getContacts();
     setIsPending(false);
-  }, []);
+  }, [])
 
   return (
     <>
@@ -69,6 +70,6 @@ const AppDashboard = () => {
       />
     </>
   );
-};
+}
 
 export default AppDashboard;

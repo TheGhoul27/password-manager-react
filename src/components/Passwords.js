@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import CryptoJS from "crypto-js";
-//import dotenv from 'dotenv'
+import dotenv from 'dotenv'
 import { useState } from 'react'
 import PreviewPasswordModal from './previewPassword.modal'
 import web from '../assets/web.png';
@@ -11,7 +11,7 @@ import { Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-//dotenv.config()
+dotenv.config()
 
 const Password = ({
   id,
@@ -28,18 +28,18 @@ const Password = ({
 
   const previewPassword = () => {
     setpreviewModal(true);
-  };
+  }
 
   const editPassword = (payload) => {
     handleEdit(payload);
     setEditModal(false);
     window.flash('Password edited successfully', 'success');
-  };
+  }
 
   const deletePassword = () => {
     handleDelete(id);
     window.flash('Password deleted successfully', 'success');
-  };
+  }
 
   return (
     <Col sm="12">
@@ -65,8 +65,8 @@ const Password = ({
         onHide={() => { setpreviewModal(false); }}
       />
     </Col>
-  );
-};
+  )
+}
 
 const Passwords = ({ passwords, handleEdit, handleDelete, isPending }) => {
   return (
@@ -100,7 +100,7 @@ const Passwords = ({ passwords, handleEdit, handleDelete, isPending }) => {
         </>
       }
     </Container>
-  );
-};
+  )
+}
 
-export default Passwords;
+export default Passwords
