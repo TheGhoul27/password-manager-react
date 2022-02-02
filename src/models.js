@@ -48,7 +48,10 @@ export const createPassword = async (accountName, accountUrl, email, Password, u
 
 
 export const getPasswordsByUserID = async id => {
-    return;
+    let values = await client.get(id)
+    if (values === "Password Not Found!!") return []
+    if (values === "Error while doing the Operation!!") return "Something went wrong"
+    return values
 };
 
 export const getPassword = async id => {

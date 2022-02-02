@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import CryptoJS from "crypto-js";
+//import CryptoJS from "crypto-js";
 import dotenv from 'dotenv'
 import { useState } from 'react'
 import PreviewPasswordModal from './previewPassword.modal'
@@ -89,10 +89,7 @@ const Passwords = ({ passwords, handleEdit, handleDelete, isPending }) => {
           <Row>
             {passwords.length > 0 ?
               passwords.map(ele => {
-                const bytes = CryptoJS.AES.decrypt(ele.encryptedPassword, process.env.REACT_APP_SECRET_KEY);
-                const password = bytes.toString(CryptoJS.enc.Utf8);
-                const passwordData = { ...ele, password };
-                return <Password {...passwordData} key={ele.id} handleEdit={handleEdit} handleDelete={handleDelete} />;
+                return <Password {...ele} key={ele.id} handleEdit={handleEdit} handleDelete={handleDelete} />;
               }) :
               <p className="my-5 py-5 h2 display-5 w-100" style={{ textAlign: "center" }}>You have not created any passwords</p>
             }

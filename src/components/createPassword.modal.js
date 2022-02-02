@@ -12,10 +12,10 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const CreatePasswordModal = props => {
-  const [accountName, setAccountName] = useState('');
-  const [accountUrl, setAccountUrl] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [accountName, setAccountName] = useState('')
+  const [accountUrl, setAccountUrl] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleCreate = async () => {
     const payload = {

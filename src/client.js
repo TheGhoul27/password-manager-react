@@ -216,6 +216,13 @@ function get(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('get', params, function (error, value) {
+      var res;
+      for (const key in value) {
+        if (key === 'response') {
+          res = JSON.parse(value[key].toString()).returnvalue;
+        }
+      }
+      console.log(res);
       if (error === null) {
         if (value !== null) {
           console.log('Password Found!!');

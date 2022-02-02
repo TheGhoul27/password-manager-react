@@ -9,7 +9,7 @@ import hero from '../assets/illus4.png';
 
 const Home = () => {
   const handleCreate = async (password) => {
-    window.flash("", "success");
+    window.flash("", "success")
   }
   return (
     <div>

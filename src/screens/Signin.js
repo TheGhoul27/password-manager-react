@@ -14,10 +14,10 @@ import { Flash } from '../components/Flash/flash';
 export default function SignIn() {
 
   const handleCreate = async (password) => {
-    window.flash("", "success");
+    window.flash("", "success")
   }
 
-  const history = useHistory();
+  const history = useHistory()
   if (localStorage.getItem('email')) {
     setTimeout(() => {
       window.flash('You are logged in', 'warning')
@@ -39,13 +39,13 @@ export default function SignIn() {
     if (!body.email || !body.password) {
       setValidated(true);
     } else {
-      const user = await loginUser(body.email, body.password);
+      const user = await loginUser(body.email, body.password)
       if (user) {
-        localStorage.setItem('email', body.email);
+        localStorage.setItem('email', body.email)
         history.push('/');
-        window.flash('Logged in successfully!', 'success');
+        window.flash('Logged in successfully!', 'success')
       } else {
-        window.flash('Invalid email or password', 'error');
+        window.flash('Invalid email or password', 'error')
       }
     }
   }

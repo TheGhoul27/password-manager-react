@@ -29,12 +29,12 @@ const App = () => {
           if (!localStorage.getItem('email')) {
             setTimeout(() => {
               window.flash('You were not logged in', 'warning');
-            }, 100);
+            }, 100)
           } else {
             localStorage.clear();
             setTimeout(() => {
               window.flash('Logged out successfully', 'success');
-            }, 100);
+            }, 100)
           }
           return <Redirect to='/' />;
         }} />

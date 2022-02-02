@@ -31,7 +31,7 @@ const PreviewPasswordModal = props => {
                 <FormControl type={passwordType} value={props.password} readOnly />
               </Col>
               <Col xs={2} md={1} className="text-left">
-                <span style={{ cursor: 'pointer' }} onClick={() => { setPasswordType(passwordType === "password" ? "text" : "password"); }}>
+                <span style={{ cursor: 'pointer' }} onClick={() => { setPasswordType(passwordType === "password" ? "text" : "password") }}>
                   {passwordType === "password" ?
                     <FontAwesomeIcon icon={faEye} size="1x" className="align-bottom" />
                     :
@@ -41,12 +41,12 @@ const PreviewPasswordModal = props => {
               <Col xs={2} md={1} className="text-right">
                 <span style={{ cursor: 'pointer' }}
                   onClick={() => {
-                    let passwordText = document.createElement('textarea');
-                    passwordText.innerText = props.password;
-                    document.body.appendChild(passwordText);
-                    passwordText.select();
-                    document.execCommand('copy');
-                    passwordText.remove();
+                    let passwordText = document.createElement('textarea')
+                    passwordText.innerText = props.password
+                    document.body.appendChild(passwordText)
+                    passwordText.select()
+                    document.execCommand('copy')
+                    passwordText.remove()
                   }}>
                   <FontAwesomeIcon icon={faCopy} size="1x" className="align-bottom" />
                 </span>
@@ -65,7 +65,7 @@ const PreviewPasswordModal = props => {
       </Button>
     </Modal.Footer>
     <EditPasswordModal
-      closePreview={() => { props.onHide(); }}
+      closePreview={() => { props.onHide() }}
       id={props.id}
       show={props.edit}
       editPassword={props.editPassword}

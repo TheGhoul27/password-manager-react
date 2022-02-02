@@ -12,11 +12,11 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const EditPasswordModal = props => {
-  const [accountName, setAccountName] = useState(props.accountName);
-  const [accountUrl, setAccountUrl] = useState(props.accountUrl);
-  const [email, setEmail] = useState(props.email);
-  const [password, setPassword] = useState(props.password);
-  const [passwordType, setPasswordType] = useState('password');
+  const [accountName, setAccountName] = useState(props.accountName)
+  const [accountUrl, setAccountUrl] = useState(props.accountUrl)
+  const [email, setEmail] = useState(props.email)
+  const [password, setPassword] = useState(props.password)
+  const [passwordType, setPasswordType] = useState('password')
 
   const onEdit = () => {
     const payload = {
@@ -26,8 +26,8 @@ const EditPasswordModal = props => {
       password,
       id: props.id
     }
-    props.editPassword(payload);
-    props.closePreview();
+    props.editPassword(payload)
+    props.closePreview()
   }
 
   return (

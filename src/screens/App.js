@@ -12,12 +12,12 @@ import { useHistory } from 'react-router';
 import { Flash } from '../components/Flash/flash';
 
 const AppDashboard = () => {
-  const history = useHistory();
+  const history = useHistory()
   if (!localStorage.getItem('email')) {
     setTimeout(() => {
       window.flash('You need to be logged in', 'warning')
-    }, 100);
-    history.push('/login');
+    }, 100)
+    history.push('/login')
   }
 
   const [passwords, setPasswords] = useState([])
@@ -40,13 +40,13 @@ const AppDashboard = () => {
   }
 
   useEffect(() => {
-    setIsPending(true);
+    setIsPending(true)
     const getContacts = async () => {
-      let passwordData = await getPasswordsByUserID(localStorage.getItem('email'));
-      setPasswords(passwordData);
+      let passwordData = await getPasswordsByUserID(localStorage.getItem('email'))
+      setPasswords(passwordData)
     }
-    getContacts();
-    setIsPending(false);
+    getContacts()
+    setIsPending(false)
   }, [])
 
   return (
@@ -61,11 +61,11 @@ const AppDashboard = () => {
             email: payload.email,
             encryptedPassword: payload.password
           }, payload.id);
-          setPasswords(passwords.map(password => password.id === payload.id ? payload : password));
+          setPasswords(passwords.map(password => password.id === payload.id ? payload : password))
         }}
         handleDelete={async id => {
           await deletePassword(id);
-          setPasswords(passwords.filter(ele => ele.id !== id));
+          setPasswords(passwords.filter(ele => ele.id !== id))
         }}
       />
     </>

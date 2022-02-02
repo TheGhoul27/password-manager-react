@@ -12,7 +12,7 @@ const NavbarComponent = (props) => {
   const [createModalShow, setCreateModalShow] = useState(false);
   const handleHide = (url, password, email, name) => {
     let n = true
-    if (url || password || email || name) { n = window.confirm("Your changes won't be saved..."); }
+    if (url || password || email || name) { n = window.confirm("Your changes won't be saved...") }
     if (n) setCreateModalShow(false)
   }
 
