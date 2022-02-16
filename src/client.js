@@ -56,12 +56,12 @@ function addUser(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/'});
   return new Promise(function (resolve, reject) {
     return client.methodCall('addUser', params, function (error, value) {
-      var res;
-      console.log(value);
-      console.log(error);
+      var res
+      /* console.log(value);
+      console.log(error); */
       for (const key in value) {
         if (key === 'response') {
-          res = JSON.parse(value[key].toString()).returnvalue;
+          res = JSON.parse(value[key].toString()).returnvalue
         }
       }
       if (error === null) {
@@ -92,10 +92,10 @@ function userValidation(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('userValidation', params, function (error, value) {
-      var res;
+      var res
       for (const key in value) {
         if (key === 'response') {
-          res = JSON.parse(value[key].toString()).returnvalue;
+          res = JSON.parse(value[key].toString()).returnvalue
         }
       }
       if (error === null) {
@@ -126,14 +126,12 @@ function addCreate(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('addCreate', params, function (error, value) {
-      var res;
-      var val;
-      console.log(value);
-      console.log(error);
+      var res
+      var val
       for (const key in value) {
         if (key === 'response') {
-          res = JSON.parse(value[key].toString()).returnvalue;
-          val = JSON.parse(value[key].toString()).values;
+          res = JSON.parse(value[key].toString()).returnvalue
+          val = JSON.parse(value[key].toString()).values
         }
       }
       if (error === null) {
@@ -165,12 +163,14 @@ function update(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('update', params, function (error, value) {
-      var res;
-      var val;
+      var res
+      var val
+      /* console.log(value);
+      console.log(error); */
       for (const key in value) {
         if (key === 'response') {
-          res = JSON.parse(value[key].toString()).returnvalue;
-          val = JSON.parse(value[key].toString()).values;
+          res = JSON.parse(value[key].toString()).returnvalue
+          val = JSON.parse(value[key].toString()).values
         }
       }
       if (error === null) {
@@ -202,10 +202,12 @@ function deletePass(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('delete', params, function (error, value) {
-      var res;
+      var res
+      /* console.log(value);
+      console.log(error); */
       for (const key in value) {
         if (key === 'response') {
-          res = JSON.parse(value[key].toString()).returnvalue;
+          res = JSON.parse(value[key].toString()).returnvalue
         }
       }
       if (error === null) {
@@ -264,10 +266,10 @@ function get(params) {
   client = xmlrpc.createClient({ host: 'localhost', port: 5050, path: '/' });
   return new Promise(function (resolve, reject) {
     return client.methodCall('get', params, function (error, value) {
-      var res;
+      var res
       for (const key in value) {
         if (key === 'response') {
-          res = JSON.parse(value[key].toString()).returnvalue;
+          res = JSON.parse(value[key].toString()).returnvalue
         }
       }
       if (error === null) {
