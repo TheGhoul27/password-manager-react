@@ -32,7 +32,7 @@ export const loginUser = async (email, password) => {
     let userData = await client.userValidation([email, password])
     if (userData === "User Not Found!!") return
     if (userData === "Error while doing the Operation!!") return "Something went wrong"
-    return userData 
+    return userData
 };
 
 export const getUser = async (userId) => {
@@ -40,7 +40,7 @@ export const getUser = async (userId) => {
 };
 
 export const createPassword = async (accountName, accountUrl, email, Password, userId) => {
-    let newPassword = await client.addCreate([accountName, accountUrl, email, Password, userId])
+    let newPassword = await client.addCreate(['add', accountName, accountUrl, email, Password, userId])
     if (newPassword === "Credentails Present!!") return 'Credentails Present!!'
     if (newPassword === "Error while doing the Operation!!") return "Something went wrong"
     return newPassword
@@ -48,7 +48,7 @@ export const createPassword = async (accountName, accountUrl, email, Password, u
 
 
 export const getPasswordsByUserID = async id => {
-    let values = await client.get(id)
+    let values = await client.get([id])
     if (values === "Password Not Found!!") return []
     if (values === "Error while doing the Operation!!") return "Something went wrong"
     return values
@@ -59,9 +59,12 @@ export const getPassword = async id => {
 };
 
 export const updatePassword = async (payload, id) => {
+    var val = Object.values(payload)
+    let update = await client.update([...val, id])
     return;
 };
 
 export const deletePassword = async id => {
+    let deletePassword = await client.deletePass(id)
     return;
 };

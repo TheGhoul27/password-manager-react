@@ -24,7 +24,6 @@ const AppDashboard = () => {
   const [isPending, setIsPending] = useState(false)
 
   const handleCreate = async password => {
-    console.log("Hi!!!")
     // save to dB
     password.userId = localStorage.getItem('email')
     const newPassword = await createPassword(
@@ -34,7 +33,6 @@ const AppDashboard = () => {
       password.password,
       password.userId
     )
-    console.log(newPassword);
     setPasswords([newPassword, ...passwords])
     window.flash('New contact created successfully', 'success')
   }
@@ -59,12 +57,13 @@ const AppDashboard = () => {
             accountName: payload.accountName,
             accountUrl: payload.accountUrl,
             email: payload.email,
-            encryptedPassword: payload.password
+            password: payload.password,
+            user: localStorage.getItem('email')
           }, payload.id);
           setPasswords(passwords.map(password => password.id === payload.id ? payload : password))
         }}
         handleDelete={async id => {
-          await deletePassword(id);
+          await deletePassword([id, localStorage.getItem('email')]);
           setPasswords(passwords.filter(ele => ele.id !== id))
         }}
       />
