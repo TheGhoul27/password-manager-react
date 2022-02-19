@@ -13,10 +13,6 @@ import { Flash } from '../components/Flash/flash';
 
 export default function SignIn() {
 
-  const handleCreate = async (password) => {
-    window.flash("", "success")
-  }
-
   const history = useHistory();
     if (localStorage.getItem('email')) {
       setTimeout(() => {
@@ -59,7 +55,7 @@ export default function SignIn() {
 
   return (
     <>
-      <NavbarComponent handleCreate={handleCreate} />
+      <NavbarComponent />
       <Flash /> <br /><br />
       <Container className='d-flex flex-column align-items-center justify-content-center pt-5' style={{ height: '80vh' }}>
         <p className="h3 display-4 mt-5"><FontAwesomeIcon icon={faUserCircle} size="1x" /></p>
